@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://d1e0chgv02fbs" path="res://assets/pixil-frame-0.png" id="1_0joo0"]
 [ext_resource type="Texture2D" uid="uid://dp2ibhhjpmn2m" path="res://assets/pixil-frame-1.png" id="2_gjfmk"]
 [ext_resource type="Script" path="res://motion.gd" id="3_7gnh4"]
-[ext_resource type="Texture2D" uid="uid://bxy227qinm5ra" path="res://icon.svg" id="4_r3v0v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yd8gt"]
 resource_local_to_scene = true
@@ -20,18 +19,33 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(557, 313)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mv88d"]
+radius = 94.0053
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 2
-position = Vector2(14.2784, 6.87006)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_yd8gt")
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 14
 script = ExtResource("3_7gnh4")
 
-[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+z_index = 2
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_yd8gt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(15.76, 10.4)
-texture = ExtResource("4_r3v0v")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D/AnimatedSprite2D"]
+position = Vector2(7.5, 0)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(1, -21)
+shape = SubResource("CircleShape2D_mv88d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, -21)
+shape = SubResource("CircleShape2D_mv88d")
+
+[connection signal="area_shape_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_shape_entered"]

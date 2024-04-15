@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://byh7jxj28facy"]
+
+[ext_resource type="Texture2D" uid="uid://d1ymthikuihay" path="res://assets/indoor.png" id="1_6ow4p"]
+[ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="2_7uwca"]
+
+[node name="Indoor1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1135, 524)
+scale = Vector2(1.73877, 1.9494)
+texture = ExtResource("1_6ow4p")
+
+[node name="Player" parent="." instance=ExtResource("2_7uwca")]

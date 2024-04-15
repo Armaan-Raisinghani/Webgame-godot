@@ -1,6 +1,7 @@
-extends AnimatedSprite2D
+extends CharacterBody2D
 
-var speed = 200
+var speed = 500
+@onready var child = $AnimatedSprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,6 +22,11 @@ func _process(delta):
 	position += direction * speed * delta
 	rotation = direction.angle()
 	if direction.length() > 0:
-		play()
+		child.play()
 	else:
-		stop()
+		child.stop()
+	
+	move_and_slide()
+func _on_area_2d_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
+	if area.collision_layer == 2:
+		set_process(!is_processing())
