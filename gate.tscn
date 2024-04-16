@@ -6,6 +6,7 @@
 size = Vector2(75, 69)
 
 [node name="Gate" type="Node2D"]
+metadata/DoorLocation = 0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_5uhgy")
