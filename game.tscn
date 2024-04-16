@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6gcxq32nebry"]
+[gd_scene load_steps=2 format=3 uid="uid://c6gcxq32nebry"]
 
-[ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_mpva4"]
-[ext_resource type="PackedScene" uid="uid://c5wyu52mcuqf5" path="res://world.tscn" id="2_p5e1a"]
+[ext_resource type="Script" path="res://SceneHandler.gd" id="1_w4rqs"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Node2D" parent="." instance=ExtResource("1_mpva4")]
-scale = Vector2(0.5, 0.5)
-
-[node name="World" parent="." instance=ExtResource("2_p5e1a")]
+[node name="Game" type="Node2D"]
+script = ExtResource("1_w4rqs")
