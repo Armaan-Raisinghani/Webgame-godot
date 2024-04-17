@@ -22,13 +22,12 @@ func load_interior(location, player):
 		body.load_interior.connect(load_interior)
 	else:
 		var remove = get_tree().root.get_child(0).get_child(0)
-		get_tree().root.get_child(0).remove_child.call_deferred(remove)
 		remove.queue_free()
 		await remove.tree_exited
 		get_tree().root.get_child(0).add_child.call_deferred(mainscene)
 		await mainscene.tree_entered
-		print(get_tree().root.get_child(0).get_child(0).name)
 		var body = get_node("/root/Game/Main/Player/CharacterBody2D")
+		
 		body.load_interior.connect(load_interior)
 			
 func _process(_delta):

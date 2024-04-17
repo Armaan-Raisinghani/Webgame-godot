@@ -2,15 +2,9 @@ extends CharacterBody2D
 
 var speed = 500
 @onready var child = $AnimatedSprite2D
-
 signal load_interior(location: int, player: Node)
-var enterable = false
-func _ready():
-	enterable = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var enterable
 func _process(delta):
-	
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_left"):
 		direction.x = -1
@@ -27,13 +21,17 @@ func _process(delta):
 		child.play()
 	else:
 		child.stop()
-	
 	move_and_slide()
+func _enter_tree():
+	enterable = false
 func _on_area_2d_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
-	if area.collision_layer == 2 and enterable:
-		var location = area.get_parent().get_parent().get_meta("DoorLocation")
-		emit_signal("load_interior", location, self)
-		enterable=false
+	if area.collision_layer == 2&&enterable:
+		if area.get_parent().get_parent().has_meta("DoorLocation"):
+			var location = area.get_parent().get_parent().get_meta("DoorLocation")
+			emit_signal("load_interior", location, self)
+			print(location)
+			enterable = false
+	
 func _on_area_2d_area_shape_exited(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.collision_layer == 2:
 		enterable = true
