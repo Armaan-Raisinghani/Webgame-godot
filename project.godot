@@ -14,6 +14,15 @@ config/name="Project Mayday"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DebugCam="*res://addons/debug_camera/scripts/DebugCamAutoload.gd"
+Questify="*res://addons/questify/quest_manager.gd"
+
+[dialogue_quest]
+
+data_directory=&"res://dialogue_quest/"
+
 [display]
 
 window/size/initial_position_type=0
@@ -23,9 +32,18 @@ window/size/initial_position_type=0
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_camera/plugin.cfg", "res://addons/questify/plugin.cfg")
+
 [layer_names]
 
 2d_physics/layer_2="Gate"
+
+[questify]
+
+general/update_polling=true
+general/update_interval=0.5
 
 [rendering]
 

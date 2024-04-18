@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6gcxq32nebry"]
+[gd_scene load_steps=3 format=3 uid="uid://c6gcxq32nebry"]
 
 [ext_resource type="Script" path="res://SceneHandler.gd" id="1_w4rqs"]
+[ext_resource type="Script" path="res://data_manager.gd" id="2_13ili"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(5, -1)
 script = ExtResource("1_w4rqs")
+
+[node name="DataManager" type="Node" parent="."]
+script = ExtResource("2_13ili")

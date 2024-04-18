@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=14 format=3 uid="uid://cibv30l6ga432"]
+
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_rjm1q"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_jmfgq"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_r30vy"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_end.gd" id="4_iupb1"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_758rh"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="5_ulc6a"]
+
+[sub_resource type="Resource" id="Resource_67ggj"]
+script = ExtResource("1_rjm1q")
+name = "Quest 1 start"
+description = "Gets intro idk
+
+"
+id = "nOJRKkphtV"
+optional = false
+graph_editor_position = Vector2(0, -80)
+
+[sub_resource type="Resource" id="Resource_meee8"]
+script = ExtResource("3_r30vy")
+description = "second thing"
+id = "Jai_NkbkTy"
+optional = false
+graph_editor_position = Vector2(400, -80)
+
+[sub_resource type="Resource" id="Resource_ml7ku"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_67ggj")
+to = SubResource("Resource_meee8")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_w2bj6"]
+script = ExtResource("4_iupb1")
+id = "-bn-kEU5_h"
+optional = false
+graph_editor_position = Vector2(900, -80)
+
+[sub_resource type="Resource" id="Resource_faeyl"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_meee8")
+to = SubResource("Resource_w2bj6")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_qt0bx"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "go"
+id = "zWBNt6xL7V"
+optional = false
+graph_editor_position = Vector2(-80, 360)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_iqvob"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_qt0bx")
+to = SubResource("Resource_meee8")
+edge_type = 1
+
+[resource]
+script = ExtResource("5_ulc6a")
+nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_67ggj"), SubResource("Resource_meee8"), SubResource("Resource_w2bj6"), SubResource("Resource_qt0bx")])
+edges = Array[ExtResource("2_jmfgq")]([SubResource("Resource_ml7ku"), SubResource("Resource_faeyl"), SubResource("Resource_iqvob")])
