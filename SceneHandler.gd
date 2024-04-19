@@ -18,10 +18,10 @@ func load_interior(location, player):
 		get_node("/root/Game").remove_child.call_deferred(mainscene)
 		if not interior.is_node_ready():
 			await interior.ready
-		var body = get_node("/root/Game/Indoor"+str(location) + "/Player/CharacterBody2D")
+		var body = get_node("/root/Game/Indoor/Player/CharacterBody2D")
 		body.load_interior.connect(load_interior)
 	else:
-		var remove = get_node("/root/Game").get_child(0)
+		var remove = get_node("/root/Game/Indoor")
 		remove.queue_free()
 		await remove.tree_exited
 		get_node("/root/Game").add_child.call_deferred(mainscene)

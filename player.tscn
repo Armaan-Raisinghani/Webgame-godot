@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdchhuyowg2dj"]
+[gd_scene load_steps=10 format=3 uid="uid://cdchhuyowg2dj"]
 
 [ext_resource type="Texture2D" uid="uid://d1e0chgv02fbs" path="res://assets/pixil-frame-0.png" id="1_0joo0"]
 [ext_resource type="Resource" uid="uid://cibv30l6ga432" path="res://Quests/test.tres" id="2_0nq26"]
 [ext_resource type="Texture2D" uid="uid://dp2ibhhjpmn2m" path="res://assets/pixil-frame-1.png" id="2_gjfmk"]
+[ext_resource type="PackedScene" uid="uid://cmt32nooq8co" path="res://Dialogue_Scene/balloon.tscn" id="3_1e6jf"]
 [ext_resource type="Script" path="res://motion.gd" id="3_7gnh4"]
+[ext_resource type="PackedScene" uid="uid://ft7b2pfbbptf" path="res://Dialogue_Scene/small_balloon.tscn" id="4_e6gbl"]
+[ext_resource type="Resource" uid="uid://cle0q57tmipcg" path="res://Dialogue/test.dialogue" id="5_tdjqf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yd8gt"]
 resource_local_to_scene = true
@@ -26,9 +29,12 @@ radius = 94.0053
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_mask = 14
+collision_mask = 30
 script = ExtResource("3_7gnh4")
 quest = ExtResource("2_0nq26")
+Balloon = ExtResource("3_1e6jf")
+SmallBalloon = ExtResource("4_e6gbl")
+dialogue_resource = ExtResource("5_tdjqf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 z_index = 4
@@ -40,7 +46,7 @@ position = Vector2(7.5, 0)
 zoom = Vector2(0.75, 0.75)
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-collision_mask = 3
+collision_mask = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 position = Vector2(1, -21)

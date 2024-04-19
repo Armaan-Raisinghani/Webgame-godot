@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 DebugCam="*res://addons/debug_camera/scripts/DebugCamAutoload.gd"
 Questify="*res://addons/questify/quest_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_quest]
 
@@ -34,7 +35,11 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/debug_camera/plugin.cfg", "res://addons/questify/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_camera/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/questify/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/test.dialogue", "res://Dialogue/dialogue.dialogue")
 
 [layer_names]
 
