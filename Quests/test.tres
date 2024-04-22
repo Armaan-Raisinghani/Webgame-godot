@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestResource" load_steps=14 format=3 uid="uid://cibv30l6ga432"]
+[gd_resource type="Resource" script_class="QuestResource" load_steps=26 format=3 uid="uid://dflgrxlqex6u3"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_rjm1q"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_jmfgq"]
@@ -7,57 +7,140 @@
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_758rh"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="5_ulc6a"]
 
-[sub_resource type="Resource" id="Resource_67ggj"]
-script = ExtResource("1_rjm1q")
-name = "Quest 1 start"
-description = "Gets intro idk
-
-"
-id = "nOJRKkphtV"
+[sub_resource type="Resource" id="Resource_jgc4f"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "bart_talked"
+id = "zWBNt6xL7V"
 optional = false
-graph_editor_position = Vector2(0, -80)
+graph_editor_position = Vector2(-140, 440)
+metadata/value = true
 
-[sub_resource type="Resource" id="Resource_meee8"]
+[sub_resource type="Resource" id="Resource_5e37n"]
 script = ExtResource("3_r30vy")
-description = "second thing"
+description = "Make your way to the Tavern and talk to Bart"
 id = "Jai_NkbkTy"
 optional = false
-graph_editor_position = Vector2(400, -80)
+graph_editor_position = Vector2(420, -260)
 
-[sub_resource type="Resource" id="Resource_ml7ku"]
+[sub_resource type="Resource" id="Resource_g171w"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_67ggj")
-to = SubResource("Resource_meee8")
+from = SubResource("Resource_jgc4f")
+to = SubResource("Resource_5e37n")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_lyrh4"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "need_sleep_job"
+id = "UOH0Bz76Ts"
+optional = false
+graph_editor_position = Vector2(480, 440)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_hgst6"]
+script = ExtResource("3_r30vy")
+description = "Talk to Asi at the Mayor's office"
+id = "OIfJK_9R5P"
+optional = false
+graph_editor_position = Vector2(1180, -260)
+
+[sub_resource type="Resource" id="Resource_mynhl"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_lyrh4")
+to = SubResource("Resource_hgst6")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_ko6ik"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_5e37n")
+to = SubResource("Resource_hgst6")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_w2bj6"]
+[sub_resource type="Resource" id="Resource_mnhdl"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "sleep_job"
+id = "RGvMPXZLj-"
+optional = false
+graph_editor_position = Vector2(1220, 440)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_040wh"]
+script = ExtResource("3_r30vy")
+description = "Go home and sleep.
+"
+id = "VGWMa9J9oZ"
+optional = false
+graph_editor_position = Vector2(1960, -80)
+
+[sub_resource type="Resource" id="Resource_0l8eh"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_mnhdl")
+to = SubResource("Resource_040wh")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_pfu0o"]
+script = ExtResource("3_r30vy")
+description = "Meet Asi in the Mayor's office"
+id = "-PyNT7-Qwb"
+optional = false
+graph_editor_position = Vector2(2740, -80)
+
+[sub_resource type="Resource" id="Resource_0k8r6"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_040wh")
+to = SubResource("Resource_pfu0o")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_yike2"]
 script = ExtResource("4_iupb1")
 id = "-bn-kEU5_h"
 optional = false
-graph_editor_position = Vector2(900, -80)
+graph_editor_position = Vector2(3500, -80)
 
-[sub_resource type="Resource" id="Resource_faeyl"]
+[sub_resource type="Resource" id="Resource_ir8rh"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_meee8")
-to = SubResource("Resource_w2bj6")
+from = SubResource("Resource_pfu0o")
+to = SubResource("Resource_yike2")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_qt0bx"]
+[sub_resource type="Resource" id="Resource_q13i7"]
 script = ExtResource("5_758rh")
 type = "variable"
-key = "go"
-id = "zWBNt6xL7V"
+key = "job_start"
+id = "2gcbqdZ1VK"
 optional = false
-graph_editor_position = Vector2(-80, 360)
+graph_editor_position = Vector2(2000, 460)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_iqvob"]
+[sub_resource type="Resource" id="Resource_q6j2s"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_qt0bx")
-to = SubResource("Resource_meee8")
+from = SubResource("Resource_q13i7")
+to = SubResource("Resource_pfu0o")
 edge_type = 1
+
+[sub_resource type="Resource" id="Resource_hhata"]
+script = ExtResource("1_rjm1q")
+name = "Storyline Begins"
+description = ""
+id = "nOJRKkphtV"
+optional = false
+graph_editor_position = Vector2(-200, -80)
+
+[sub_resource type="Resource" id="Resource_gtiox"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_hhata")
+to = SubResource("Resource_5e37n")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_xvioc"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_hgst6")
+to = SubResource("Resource_040wh")
+edge_type = 0
 
 [resource]
 script = ExtResource("5_ulc6a")
-nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_67ggj"), SubResource("Resource_meee8"), SubResource("Resource_w2bj6"), SubResource("Resource_qt0bx")])
-edges = Array[ExtResource("2_jmfgq")]([SubResource("Resource_ml7ku"), SubResource("Resource_faeyl"), SubResource("Resource_iqvob")])
+nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_040wh"), SubResource("Resource_lyrh4"), SubResource("Resource_jgc4f"), SubResource("Resource_mnhdl"), SubResource("Resource_pfu0o"), SubResource("Resource_yike2"), SubResource("Resource_q13i7"), SubResource("Resource_hhata"), SubResource("Resource_hgst6"), SubResource("Resource_5e37n")])
+edges = Array[ExtResource("2_jmfgq")]([SubResource("Resource_g171w"), SubResource("Resource_mynhl"), SubResource("Resource_ko6ik"), SubResource("Resource_0l8eh"), SubResource("Resource_0k8r6"), SubResource("Resource_ir8rh"), SubResource("Resource_q6j2s"), SubResource("Resource_gtiox"), SubResource("Resource_xvioc")])
