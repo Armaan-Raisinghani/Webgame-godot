@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://wjf7qeaaicw3"]
+
+[ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_r353g"]
+[ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_vrphe"]
+[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_c8rs1"]
+[ext_resource type="Texture2D" uid="uid://bxy227qinm5ra" path="res://icon.svg" id="4_mcl6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0h7"]
+size = Vector2(128, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1drc"]
+size = Vector2(64, 62)
+
+[node name="Indoor" type="Node2D"]
+metadata/indoor = 4
+
+[node name="Player" parent="." instance=ExtResource("1_r353g")]
+position = Vector2(608, 576)
+scale = Vector2(0.5, 0.5)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_vrphe")
+format = 2
+layer_0/name = "0"
+layer_0/tile_data = PackedInt32Array(589830, 131072, 3, 655366, 131072, 3, 720902, 131072, 3, 786438, 131072, 3, 524295, 131072, 3, 589831, 131072, 3, 655367, 131072, 3, 720903, 131072, 3, 786439, 131072, 3, 524296, 131072, 3, 589832, 131072, 3, 655368, 131072, 3, 720904, 131072, 3, 786440, 131072, 3, 524297, 131072, 3, 589833, 131072, 3, 655369, 131072, 3, 720905, 131072, 3, 786441, 131072, 3, 524298, 131072, 3, 589834, 131072, 3, 655370, 131072, 3, 720906, 131072, 3, 786442, 131072, 3, 524299, 131072, 3, 589835, 131072, 3, 655371, 131072, 3, 720907, 131072, 3, 786443, 131072, 3, 524300, 131072, 3, 589836, 131072, 3, 655372, 131072, 3, 720908, 131072, 3, 786444, 131072, 3, 524301, 131072, 3, 851974, 131072, 3, 851975, 131072, 3, 851976, 131072, 3, 851977, 131072, 3, 851978, 131072, 3, 851979, 131072, 3, 851980, 131072, 3, 851981, 131072, 3, 458758, 65536, 1610612738, 458759, 65536, 2, 458760, 0, 2, 458761, 65536, 2, 458762, 0, 2, 458763, 65536, 2, 458764, 0, 2, 458765, 65536, 2, 917517, 0, 805306370, 917516, 65536, 805306370, 917515, 0, 805306370, 917514, 65536, 805306370, 917513, 0, 805306370, 917512, 65536, 805306370, 917511, 0, 805306370, 917510, 65536, 805306370, 851973, 65536, 1610612738, 917509, 0, 1610612738, 720901, 65536, 1610612738, 786437, 0, 1610612738, 589829, 65536, 1610612738, 655365, 0, 1610612738, 458757, 65536, 1610612738, 524293, 0, 1610612738, 524294, 131072, 3, 589837, 131072, 3, 655373, 131072, 3, 720909, 131072, 3, 786445, 131072, 3, 458766, 0, 2, 458767, 65536, 2, 458768, 0, 2, 458769, 65536, 2, 917518, 0, 2, 917519, 65536, 2, 917520, 0, 2, 917521, 65536, 2, 458770, 0, 1342177282, 524306, 65536, 1342177282, 589842, 0, 1342177282, 655378, 65536, 1342177282, 720914, 0, 1342177282, 786450, 65536, 1342177282, 851986, 0, 1342177282, 917522, 65536, 1342177282, 720912, 131072, 3, 655376, 131072, 3, 589840, 131072, 3, 524304, 131072, 3, 524303, 131072, 3, 524302, 131072, 3, 589838, 131072, 3, 655374, 131072, 3, 720910, 131072, 3, 786446, 131072, 3, 851982, 131072, 3, 851983, 131072, 3, 786447, 131072, 3, 720911, 131072, 3, 655375, 131072, 3, 589839, 131072, 3, 786448, 131072, 3, 851984, 131072, 3, 851985, 131072, 3, 786449, 131072, 3, 720913, 131072, 3, 655377, 131072, 3, 589841, 131072, 3, 524305, 131072, 3)
+layer_1/name = "1"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Gate" parent="TileMap" instance=ExtResource("3_c8rs1")]
+position = Vector2(608, 480)
+metadata/DoorLocation = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+scale = Vector2(1.27104, 1.08088)
+collision_layer = 256
+
+[node name="Sprite2D2" type="Sprite2D" parent="TileMap/StaticBody2D"]
+position = Vector2(480, 768)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mcl6w")
+
+[node name="Area2D" type="Area2D" parent="TileMap/StaticBody2D/Sprite2D2"]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D/Sprite2D2/Area2D"]
+position = Vector2(0, -96)
+shape = SubResource("RectangleShape2D_ro0h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+position = Vector2(480, 767)
+shape = SubResource("RectangleShape2D_r1drc")

@@ -2,7 +2,7 @@ class_name DataManager extends Node
 
 signal data_changed(key: String, value: Variant)
 
-var data := {}
+var data := {"bart_talked": true, "need_sleep_job": true, "sleep_job": true, "job_start": true, "worked_count": 6, "work_3": true}
 
 func _ready() -> void:
 	Questify.condition_query_requested.connect(

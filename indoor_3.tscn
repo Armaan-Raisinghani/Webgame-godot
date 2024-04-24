@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_7pic3"]
 
 [node name="Indoor" type="Node2D"]
+metadata/indoor = 3
 
 [node name="Player" parent="." instance=ExtResource("1_qatb3")]
 position = Vector2(608, 576)
@@ -32,5 +33,15 @@ collision_layer = 64
 
 [node name="Area2D" parent="TileMap/NPC/StaticBody2D" index="0"]
 collision_layer = 64
+
+[node name="Gate2" parent="TileMap" instance=ExtResource("3_7pic3")]
+position = Vector2(1056, 1888)
+rotation = 3.14159
+metadata/DoorLocation = 4
+
+[node name="Gate3" parent="TileMap" instance=ExtResource("3_7pic3")]
+position = Vector2(608, 1184)
+rotation = 3.14159
+metadata/DoorLocation = 5
 
 [editable path="TileMap/NPC"]

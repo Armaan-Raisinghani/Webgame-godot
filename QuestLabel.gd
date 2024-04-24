@@ -9,7 +9,6 @@ func _ready():
 			text=quest.get_active_objectives()[0].description
 	)
 	Questify.quest_started.connect(func(quest: QuestResource):
-		print(quest)
 		text=quest.get_active_objectives()[0].description
 	)
 

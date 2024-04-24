@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://QuestLabel.gd" id="3_00jeh"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(5, -1)
+position = Vector2(5, 0)
 script = ExtResource("1_w4rqs")
 
 [node name="DataManager" type="Node" parent="."]

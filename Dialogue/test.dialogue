@@ -1,21 +1,24 @@
 
 ~ tavern
-if not Data.get_value("bart_intro"):
-	Bart: [[Hi|Hello|Howdy]] there, Ras. The usual?
-	You: Nah not today.
-	Bart: Alright! So, how you been doing lately?
-	You: Still busy looking for a job.
-	Bart: I heard the mayor's team was looking for a new employee, some management role I think.
-	You: You know I'm not a politics guy Bart.
-	Bart: Don't reckon you'll be doin' any of it. Mayor May won't like her stuff being looked into anyways.
-	Bart: Hey, you're an honest guy, they need some of those. Have a look 
-	do Data.set_value("bart_intro",true)
-Bart: So, you interested in the job?
-- Yea I guess, who do I talk to?
-	Bart: Go talk to Asy's office, she can help 
-	do Data.set_value("bart_talked", true)
-- Not right now, I'll check it out later  
-	Bart: You do you
+if not Data.get_value("bart_talked"):
+	if not Data.get_value("bart_intro"):
+		Bart: [[Hi|Hello|Howdy]] there, Ras. The usual?
+		You: Nah not today.
+		Bart: Alright! So, how you been doing lately?
+		You: Still busy looking for a job.
+		Bart: I heard the mayor's team was looking for a new employee, some management role I think.
+		You: You know I'm not a politics guy Bart.
+		Bart: Don't reckon you'll be doin' any of it. Mayor May won't like her stuff being looked into anyways.
+		Bart: Hey, you're an honest guy, they need some of those. Have a look 
+		do Data.set_value("bart_intro",true)
+	Bart: So, you interested in the job?
+	- Yea I guess, who do I talk to?
+		Bart: Go talk to Asy's office, she can help 
+		do Data.set_value("bart_talked", true)
+	- Not right now, I'll check it out later  
+		Bart: You do you
+else:
+	Bart: ~
 => END
 ~ asi
 if not Data.get_value("need_sleep_job"):
@@ -38,5 +41,30 @@ elif not Data.get_value("job_start"):
 	Asi: Welcome back, we are pleased to announce that you would be an ideal candidate for the job and we'd love to have you working with it.
 	Asi: Your office is straigh down this hallway. It is located next to the retired animatronics storage room.
 	do Data.set_value("job_start",true)
-	#make this true when office entered
-	 
+else:
+	Asi: ~
+=> END
+~ work_sus_1
+You: Some of these numbers don't add up
+You: Something is wrong with the data
+You: I should keep an eye out for stuff
+=> END
+~ work_sus_2
+You: None of this is right. I should go talk to May about this.
+=> END
+~ may
+if not Data.get_value("confront_may"):
+	May: Ah, Playa! Thanks for knocking, come in.  
+	May: Tell me what brings you here
+	You: Morning May, sorry about that
+	You: I discovered some problems with the campaign funds. None of the numbers add up. The sum of all reported income is lesser than the funds we seem to have and the reported spending seems less than actual amount depleted.
+	May: Playa, this is a complex field of work. There's some exchange of money which remains... off the books.
+	You: So you admit that we receive confidential funding and that its use is not properly documented.
+	May: You're new here. Not all these expenses and incomes are from corrupt reasons. Overall our pratices help our goal. It increases employee morale and allows for more, albeit secret, funding for the better of the city. I'd advise you ignore this issue and focus on the important parts of your job. After all, that's what gets you the significant pay raises.
+	- Are you trying to bribe me? I'm not gonna accept your stupid money. 
+		do Data.set_value("confront_may", true)
+		May: Of course not, why would I do that. Just head back to your office and continue doing your job. 
+	- Undertood ma'am (Accept the bribe)
+		do Data.set_value("bad_ending",true)
+		do Data.set_value("confront_may", true)
+		do get_tree().change_scene_to_file("res://credits.tscn")

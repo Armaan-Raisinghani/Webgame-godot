@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cld0oib3bnspg" path="res://NPC.tscn" id="4_2w0be"]
 
 [node name="Indoor" type="Node2D"]
+metadata/indoor = 1
 
 [node name="Player" parent="." instance=ExtResource("2_7uwca")]
 position = Vector2(608, 406)

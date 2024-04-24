@@ -47,6 +47,7 @@ _data = {
 }
 
 [node name="Indoor" type="Node2D"]
+metadata/indoor = 2
 
 [node name="Player" parent="." instance=ExtResource("1_x65rp")]
 position = Vector2(608, 406)
@@ -100,3 +101,4 @@ offset_top = -344.0
 offset_right = 2192.0
 offset_bottom = 1136.0
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+metadata/_edit_use_anchors_ = true
