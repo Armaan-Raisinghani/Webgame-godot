@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="2_7uwca"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_s17fo"]
-[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_dnv0u"]
+[ext_resource type="PackedScene" path="res://gate.tscn" id="3_dnv0u"]
 [ext_resource type="PackedScene" uid="uid://cld0oib3bnspg" path="res://NPC.tscn" id="4_2w0be"]
 
 [node name="Indoor" type="Node2D"]

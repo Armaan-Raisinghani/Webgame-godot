@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_r353g"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_vrphe"]
-[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_c8rs1"]
+[ext_resource type="PackedScene" path="res://gate.tscn" id="3_c8rs1"]
 [ext_resource type="Texture2D" uid="uid://bxy227qinm5ra" path="res://icon.svg" id="4_mcl6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0h7"]
@@ -12,7 +12,7 @@ size = Vector2(128, 320)
 size = Vector2(64, 62)
 
 [node name="Indoor" type="Node2D"]
-metadata/indoor = 4
+metadata/indoor = 5
 
 [node name="Player" parent="." instance=ExtResource("1_r353g")]
 position = Vector2(608, 576)

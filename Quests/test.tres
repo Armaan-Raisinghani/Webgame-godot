@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestResource" load_steps=49 format=3 uid="uid://oi12a00xb1g1"]
+[gd_resource type="Resource" script_class="QuestResource" load_steps=77 format=3 uid="uid://oi12a00xb1g1"]
 
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_start.gd" id="1_rjm1q"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_edge.gd" id="2_jmfgq"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_condition.gd" id="5_758rh"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_conditional_branch.gd" id="5_pr4r5"]
 [ext_resource type="Script" path="res://addons/questify/scripts/model/quest_resource.gd" id="5_ulc6a"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_not_condition.gd" id="7_1hia0"]
+[ext_resource type="Script" path="res://addons/questify/scripts/model/quest_any_previous.gd" id="7_acol7"]
 
-[sub_resource type="Resource" id="Resource_kk68u"]
+[sub_resource type="Resource" id="Resource_v4gn3"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "bart_talked"
@@ -17,20 +19,20 @@ optional = false
 graph_editor_position = Vector2(-300, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_xmrk6"]
+[sub_resource type="Resource" id="Resource_ntjds"]
 script = ExtResource("3_r30vy")
 description = "Make your way to the Tavern and talk to Bart"
 id = "Jai_NkbkTy"
 optional = false
 graph_editor_position = Vector2(260, 500)
 
-[sub_resource type="Resource" id="Resource_lnpdk"]
+[sub_resource type="Resource" id="Resource_4e25o"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_kk68u")
-to = SubResource("Resource_xmrk6")
+from = SubResource("Resource_v4gn3")
+to = SubResource("Resource_ntjds")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_rqgnf"]
+[sub_resource type="Resource" id="Resource_jqbcq"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "need_sleep_job"
@@ -39,20 +41,20 @@ optional = false
 graph_editor_position = Vector2(360, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_s8hus"]
+[sub_resource type="Resource" id="Resource_32cs4"]
 script = ExtResource("3_r30vy")
 description = "Talk to Asi at the Mayor's office"
 id = "OIfJK_9R5P"
 optional = false
 graph_editor_position = Vector2(800, 500)
 
-[sub_resource type="Resource" id="Resource_5pee6"]
+[sub_resource type="Resource" id="Resource_g7smt"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_rqgnf")
-to = SubResource("Resource_s8hus")
+from = SubResource("Resource_jqbcq")
+to = SubResource("Resource_32cs4")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_4ua2v"]
+[sub_resource type="Resource" id="Resource_uk4ml"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "sleep_job"
@@ -61,7 +63,7 @@ optional = false
 graph_editor_position = Vector2(880, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_87wgn"]
+[sub_resource type="Resource" id="Resource_ps4up"]
 script = ExtResource("3_r30vy")
 description = "Go home and sleep.
 "
@@ -69,13 +71,13 @@ id = "VGWMa9J9oZ"
 optional = false
 graph_editor_position = Vector2(1420, 500)
 
-[sub_resource type="Resource" id="Resource_oi0ws"]
+[sub_resource type="Resource" id="Resource_joej3"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_4ua2v")
-to = SubResource("Resource_87wgn")
+from = SubResource("Resource_uk4ml")
+to = SubResource("Resource_ps4up")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_5ic8v"]
+[sub_resource type="Resource" id="Resource_5oege"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "job_start"
@@ -84,20 +86,20 @@ optional = false
 graph_editor_position = Vector2(1460, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_1r8xj"]
+[sub_resource type="Resource" id="Resource_kfu6j"]
 script = ExtResource("3_r30vy")
 description = "Meet Asi in the Mayor's office"
 id = "-PyNT7-Qwb"
 optional = false
 graph_editor_position = Vector2(2040, 500)
 
-[sub_resource type="Resource" id="Resource_7ab1y"]
+[sub_resource type="Resource" id="Resource_n8mhx"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_5ic8v")
-to = SubResource("Resource_1r8xj")
+from = SubResource("Resource_5oege")
+to = SubResource("Resource_kfu6j")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_7ty83"]
+[sub_resource type="Resource" id="Resource_1p5e3"]
 script = ExtResource("1_rjm1q")
 name = "Main Story"
 description = ""
@@ -105,19 +107,19 @@ id = "nOJRKkphtV"
 optional = false
 graph_editor_position = Vector2(-120, 500)
 
-[sub_resource type="Resource" id="Resource_qopwo"]
+[sub_resource type="Resource" id="Resource_el6ag"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_7ty83")
-to = SubResource("Resource_xmrk6")
+from = SubResource("Resource_1p5e3")
+to = SubResource("Resource_ntjds")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_n7qio"]
+[sub_resource type="Resource" id="Resource_afx4m"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_s8hus")
-to = SubResource("Resource_87wgn")
+from = SubResource("Resource_32cs4")
+to = SubResource("Resource_ps4up")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_hn6dw"]
+[sub_resource type="Resource" id="Resource_5h6yv"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "work_3"
@@ -126,51 +128,51 @@ optional = false
 graph_editor_position = Vector2(2140, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_7fk6j"]
+[sub_resource type="Resource" id="Resource_p3rha"]
 script = ExtResource("3_r30vy")
 description = "Work for a few days"
 id = "kdYbDaBhOF"
 optional = false
 graph_editor_position = Vector2(2600, 500)
 
-[sub_resource type="Resource" id="Resource_p1f4t"]
+[sub_resource type="Resource" id="Resource_8hd85"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_hn6dw")
-to = SubResource("Resource_7fk6j")
+from = SubResource("Resource_5h6yv")
+to = SubResource("Resource_p3rha")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_s0hrh"]
+[sub_resource type="Resource" id="Resource_8dds6"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_xmrk6")
-to = SubResource("Resource_s8hus")
+from = SubResource("Resource_ntjds")
+to = SubResource("Resource_32cs4")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_gtopu"]
+[sub_resource type="Resource" id="Resource_gmewl"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_87wgn")
-to = SubResource("Resource_1r8xj")
+from = SubResource("Resource_ps4up")
+to = SubResource("Resource_kfu6j")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_bad7n"]
+[sub_resource type="Resource" id="Resource_4rgyn"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_1r8xj")
-to = SubResource("Resource_7fk6j")
+from = SubResource("Resource_kfu6j")
+to = SubResource("Resource_p3rha")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_vaaue"]
+[sub_resource type="Resource" id="Resource_vg4nc"]
 script = ExtResource("3_r30vy")
 description = "Continue working and gathering data"
 id = "Mqubg2vTNy"
 optional = false
 graph_editor_position = Vector2(3200, 500)
 
-[sub_resource type="Resource" id="Resource_n2i8s"]
+[sub_resource type="Resource" id="Resource_uuara"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_7fk6j")
-to = SubResource("Resource_vaaue")
+from = SubResource("Resource_p3rha")
+to = SubResource("Resource_vg4nc")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_08abt"]
+[sub_resource type="Resource" id="Resource_yve4f"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "work_7"
@@ -179,26 +181,26 @@ optional = false
 graph_editor_position = Vector2(2660, 1120)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_0ckyq"]
+[sub_resource type="Resource" id="Resource_sw8vu"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_08abt")
-to = SubResource("Resource_vaaue")
+from = SubResource("Resource_yve4f")
+to = SubResource("Resource_vg4nc")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_4ptwf"]
+[sub_resource type="Resource" id="Resource_jx5fg"]
 script = ExtResource("3_r30vy")
 description = "Talk to Mayor May about the discepencies"
 id = "cJzBcq-her"
 optional = false
 graph_editor_position = Vector2(3820, 500)
 
-[sub_resource type="Resource" id="Resource_5q6h2"]
+[sub_resource type="Resource" id="Resource_6sarr"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_vaaue")
-to = SubResource("Resource_4ptwf")
+from = SubResource("Resource_vg4nc")
+to = SubResource("Resource_jx5fg")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_i17it"]
+[sub_resource type="Resource" id="Resource_5ggo0"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "confront_may"
@@ -207,91 +209,268 @@ optional = false
 graph_editor_position = Vector2(3240, 1100)
 metadata/value = true
 
-[sub_resource type="Resource" id="Resource_whkxx"]
+[sub_resource type="Resource" id="Resource_oiukp"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_i17it")
-to = SubResource("Resource_4ptwf")
+from = SubResource("Resource_5ggo0")
+to = SubResource("Resource_jx5fg")
 edge_type = 1
 
-[sub_resource type="Resource" id="Resource_6s8ys"]
+[sub_resource type="Resource" id="Resource_cm1o5"]
 script = ExtResource("5_pr4r5")
 id = "YoupEd1upe"
 optional = false
-graph_editor_position = Vector2(5620, 500)
+graph_editor_position = Vector2(5220, 480)
 
-[sub_resource type="Resource" id="Resource_ic4c5"]
+[sub_resource type="Resource" id="Resource_su7le"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_4ptwf")
-to = SubResource("Resource_6s8ys")
+from = SubResource("Resource_jx5fg")
+to = SubResource("Resource_cm1o5")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_jc6ji"]
+[sub_resource type="Resource" id="Resource_fxh4s"]
 script = ExtResource("5_pr4r5")
 id = "Uz5ah4iApM"
 optional = false
-graph_editor_position = Vector2(4700, 1160)
+graph_editor_position = Vector2(5220, 680)
 
-[sub_resource type="Resource" id="Resource_ar5x5"]
+[sub_resource type="Resource" id="Resource_ofmd6"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_4ptwf")
-to = SubResource("Resource_jc6ji")
+from = SubResource("Resource_jx5fg")
+to = SubResource("Resource_fxh4s")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_tk5hj"]
-script = ExtResource("5_758rh")
-type = "variable"
-key = "bad_ending"
-id = "rL9cWX2zpI"
-optional = false
-graph_editor_position = Vector2(4720, 600)
-metadata/value = true
-
-[sub_resource type="Resource" id="Resource_4p2i3"]
-script = ExtResource("2_jmfgq")
-from = SubResource("Resource_tk5hj")
-to = SubResource("Resource_6s8ys")
-edge_type = 1
-
-[sub_resource type="Resource" id="Resource_1ynrl"]
+[sub_resource type="Resource" id="Resource_ng2wj"]
 script = ExtResource("3_r30vy")
-description = ""
+description = "Talk to Bart about the mayor "
 id = "KAbMOG1dmN"
 optional = false
-graph_editor_position = Vector2(5040, 1160)
+graph_editor_position = Vector2(5740, 780)
 
-[sub_resource type="Resource" id="Resource_nf68b"]
+[sub_resource type="Resource" id="Resource_acjk7"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_jc6ji")
-to = SubResource("Resource_1ynrl")
+from = SubResource("Resource_fxh4s")
+to = SubResource("Resource_ng2wj")
 edge_type = 0
 
-[sub_resource type="Resource" id="Resource_pfh4m"]
-script = ExtResource("4_iupb1")
-id = "-bn-kEU5_h"
-optional = false
-graph_editor_position = Vector2(6420, 500)
-
-[sub_resource type="Resource" id="Resource_dtrcd"]
-script = ExtResource("2_jmfgq")
-from = SubResource("Resource_6s8ys")
-to = SubResource("Resource_pfh4m")
-edge_type = 0
-
-[sub_resource type="Resource" id="Resource_cv7ct"]
+[sub_resource type="Resource" id="Resource_2o4ua"]
 script = ExtResource("5_758rh")
 type = "variable"
 key = "bad_ending"
 id = "jJlkRHm64L"
 optional = false
 graph_editor_position = Vector2(3940, 1100)
+metadata/value = true
 
-[sub_resource type="Resource" id="Resource_xe0km"]
+[sub_resource type="Resource" id="Resource_5317o"]
+script = ExtResource("7_1hia0")
+id = "15HUVHdYoB"
+optional = false
+graph_editor_position = Vector2(4460, 680)
+
+[sub_resource type="Resource" id="Resource_40i2i"]
 script = ExtResource("2_jmfgq")
-from = SubResource("Resource_cv7ct")
-to = SubResource("Resource_jc6ji")
+from = SubResource("Resource_2o4ua")
+to = SubResource("Resource_5317o")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_p731j"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_5317o")
+to = SubResource("Resource_fxh4s")
 edge_type = 1
+
+[sub_resource type="Resource" id="Resource_nkflv"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_2o4ua")
+to = SubResource("Resource_cm1o5")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_u2ypu"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "bart_may_talked"
+id = "hqAnTo1P3O"
+optional = false
+graph_editor_position = Vector2(5200, 920)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_yo6de"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_u2ypu")
+to = SubResource("Resource_ng2wj")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_0my4p"]
+script = ExtResource("3_r30vy")
+description = "Work at your office"
+id = "LGHIY6p0ug"
+optional = false
+graph_editor_position = Vector2(6420, 740)
+
+[sub_resource type="Resource" id="Resource_7dbv8"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_ng2wj")
+to = SubResource("Resource_0my4p")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_8vot4"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "bart_info_ready"
+id = "qiCeiP_X-6"
+optional = false
+graph_editor_position = Vector2(5800, 1360)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_ha0o7"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_8vot4")
+to = SubResource("Resource_0my4p")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_v0tek"]
+script = ExtResource("7_acol7")
+id = "dZyZAQ5vMX"
+optional = false
+graph_editor_position = Vector2(9680, 420)
+
+[sub_resource type="Resource" id="Resource_rxh4k"]
+script = ExtResource("4_iupb1")
+id = "-bn-kEU5_h"
+optional = false
+graph_editor_position = Vector2(10520, 440)
+
+[sub_resource type="Resource" id="Resource_my1ig"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_v0tek")
+to = SubResource("Resource_rxh4k")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_yq8or"]
+script = ExtResource("3_r30vy")
+description = "Give the information to Bart"
+id = "UwDN_lM6x1"
+optional = false
+graph_editor_position = Vector2(7000, 740)
+
+[sub_resource type="Resource" id="Resource_iwqkq"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_0my4p")
+to = SubResource("Resource_yq8or")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_xo2fi"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "bart_info_given"
+id = "TgGUCp5JEG"
+optional = false
+graph_editor_position = Vector2(6460, 1360)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_b2npk"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_xo2fi")
+to = SubResource("Resource_yq8or")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_gl0iw"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "end_sleep"
+id = "hLpyKZEQdI"
+optional = false
+graph_editor_position = Vector2(7040, 1360)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_lphs3"]
+script = ExtResource("3_r30vy")
+description = "Sleep"
+id = "omkS0YFQjm"
+optional = false
+graph_editor_position = Vector2(7660, 740)
+
+[sub_resource type="Resource" id="Resource_pggs4"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_gl0iw")
+to = SubResource("Resource_lphs3")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_5ts2m"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_yq8or")
+to = SubResource("Resource_lphs3")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_0akj8"]
+script = ExtResource("3_r30vy")
+description = "Talk to Bart"
+id = "QvNycWjmlR"
+optional = false
+graph_editor_position = Vector2(8360, 740)
+
+[sub_resource type="Resource" id="Resource_tibpb"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_lphs3")
+to = SubResource("Resource_0akj8")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_cboc2"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "became_mayor"
+id = "pbpFJczXMj"
+optional = false
+graph_editor_position = Vector2(7780, 1360)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_c6mrt"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_cboc2")
+to = SubResource("Resource_0akj8")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_q06i2"]
+script = ExtResource("3_r30vy")
+description = "Talk to Asi"
+id = "nKTaXI8iG5"
+optional = false
+graph_editor_position = Vector2(9075.59, 773.234)
+
+[sub_resource type="Resource" id="Resource_6kjba"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_0akj8")
+to = SubResource("Resource_q06i2")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_wx523"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_cm1o5")
+to = SubResource("Resource_v0tek")
+edge_type = 0
+
+[sub_resource type="Resource" id="Resource_3lk8w"]
+script = ExtResource("5_758rh")
+type = "variable"
+key = "game_ended"
+id = "wHpcgUmZrD"
+optional = false
+graph_editor_position = Vector2(8500, 1300)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_thq0f"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_3lk8w")
+to = SubResource("Resource_q06i2")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_s101h"]
+script = ExtResource("2_jmfgq")
+from = SubResource("Resource_q06i2")
+to = SubResource("Resource_v0tek")
+edge_type = 0
 
 [resource]
 script = ExtResource("5_ulc6a")
-nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_7ty83"), SubResource("Resource_xmrk6"), SubResource("Resource_s8hus"), SubResource("Resource_87wgn"), SubResource("Resource_1r8xj"), SubResource("Resource_7fk6j"), SubResource("Resource_vaaue"), SubResource("Resource_rqgnf"), SubResource("Resource_4ua2v"), SubResource("Resource_kk68u"), SubResource("Resource_5ic8v"), SubResource("Resource_hn6dw"), SubResource("Resource_4ptwf"), SubResource("Resource_i17it"), SubResource("Resource_08abt"), SubResource("Resource_1ynrl"), SubResource("Resource_tk5hj"), SubResource("Resource_jc6ji"), SubResource("Resource_cv7ct"), SubResource("Resource_6s8ys"), SubResource("Resource_pfh4m")])
-edges = Array[ExtResource("2_jmfgq")]([SubResource("Resource_lnpdk"), SubResource("Resource_5pee6"), SubResource("Resource_oi0ws"), SubResource("Resource_7ab1y"), SubResource("Resource_qopwo"), SubResource("Resource_n7qio"), SubResource("Resource_p1f4t"), SubResource("Resource_s0hrh"), SubResource("Resource_gtopu"), SubResource("Resource_bad7n"), SubResource("Resource_n2i8s"), SubResource("Resource_0ckyq"), SubResource("Resource_5q6h2"), SubResource("Resource_whkxx"), SubResource("Resource_ic4c5"), SubResource("Resource_ar5x5"), SubResource("Resource_4p2i3"), SubResource("Resource_nf68b"), SubResource("Resource_dtrcd"), SubResource("Resource_xe0km")])
+nodes = Array[Resource("res://addons/questify/scripts/model/quest_node.gd")]([SubResource("Resource_1p5e3"), SubResource("Resource_ntjds"), SubResource("Resource_32cs4"), SubResource("Resource_ps4up"), SubResource("Resource_kfu6j"), SubResource("Resource_p3rha"), SubResource("Resource_vg4nc"), SubResource("Resource_jqbcq"), SubResource("Resource_uk4ml"), SubResource("Resource_v4gn3"), SubResource("Resource_5oege"), SubResource("Resource_5h6yv"), SubResource("Resource_jx5fg"), SubResource("Resource_5ggo0"), SubResource("Resource_yve4f"), SubResource("Resource_2o4ua"), SubResource("Resource_5317o"), SubResource("Resource_fxh4s"), SubResource("Resource_ng2wj"), SubResource("Resource_cm1o5"), SubResource("Resource_u2ypu"), SubResource("Resource_0my4p"), SubResource("Resource_8vot4"), SubResource("Resource_yq8or"), SubResource("Resource_xo2fi"), SubResource("Resource_gl0iw"), SubResource("Resource_lphs3"), SubResource("Resource_0akj8"), SubResource("Resource_cboc2"), SubResource("Resource_q06i2"), SubResource("Resource_3lk8w"), SubResource("Resource_rxh4k"), SubResource("Resource_v0tek")])
+edges = Array[ExtResource("2_jmfgq")]([SubResource("Resource_4e25o"), SubResource("Resource_g7smt"), SubResource("Resource_joej3"), SubResource("Resource_n8mhx"), SubResource("Resource_el6ag"), SubResource("Resource_afx4m"), SubResource("Resource_8hd85"), SubResource("Resource_8dds6"), SubResource("Resource_gmewl"), SubResource("Resource_4rgyn"), SubResource("Resource_uuara"), SubResource("Resource_sw8vu"), SubResource("Resource_6sarr"), SubResource("Resource_oiukp"), SubResource("Resource_su7le"), SubResource("Resource_ofmd6"), SubResource("Resource_acjk7"), SubResource("Resource_40i2i"), SubResource("Resource_p731j"), SubResource("Resource_nkflv"), SubResource("Resource_yo6de"), SubResource("Resource_7dbv8"), SubResource("Resource_ha0o7"), SubResource("Resource_my1ig"), SubResource("Resource_iwqkq"), SubResource("Resource_b2npk"), SubResource("Resource_pggs4"), SubResource("Resource_5ts2m"), SubResource("Resource_tibpb"), SubResource("Resource_c6mrt"), SubResource("Resource_6kjba"), SubResource("Resource_wx523"), SubResource("Resource_thq0f"), SubResource("Resource_s101h")])

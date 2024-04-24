@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_x65rp"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_hudfn"]
-[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_81g3w"]
+[ext_resource type="PackedScene" path="res://gate.tscn" id="3_81g3w"]
 [ext_resource type="Texture2D" uid="uid://dr2vj6gwgegtw" path="res://assets/bed.png" id="4_srabn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvnab"]

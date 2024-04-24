@@ -12,11 +12,11 @@ size = Vector2(75, 69)
 position = Vector2(-792, -208)
 
 [node name="Player" parent="." instance=ExtResource("1_2jorq")]
-position = Vector2(1064, -184)
+position = Vector2(-2248, -888)
 scale = Vector2(0.5, 0.5)
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1064, -200)
+position = Vector2(-2248, -904)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]

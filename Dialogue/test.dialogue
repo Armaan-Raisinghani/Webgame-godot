@@ -13,10 +13,41 @@ if not Data.get_value("bart_talked"):
 		do Data.set_value("bart_intro",true)
 	Bart: So, you interested in the job?
 	- Yea I guess, who do I talk to?
-		Bart: Go talk to Asy's office, she can help 
+		Bart: Go talk to Asi's office, she can help 
 		do Data.set_value("bart_talked", true)
 	- Not right now, I'll check it out later  
 		Bart: You do you
+elif not Data.get_value("bart_may_talked") and Data.get_value("confront_may"):
+	Bart: Playaa, how ya doin
+	You: About as good as can be expected, but the news is not good
+	Bart: Is it about the job
+	You: Yea, you were right. The mayor has been doing some shady stuff. She even bribed me to keep shut
+	Bart: Whatcha say?
+	You: No, of course not. I'm not gonna be a part of whatever shes doing.
+	Bart: So you quiting?
+	You: No, I don't think so.
+	You: Hey do you know anyone from the press?
+	Bart: This is a tavern. I know people form every profession.
+	You: I'll have something for you soon, I'm sure they'll love it.
+	do Data.set_value("bart_may_talked", true)
+elif not Data.get_value("bart_info_given") and Data.get_value("bart_info_ready"):
+	You: As discussed Bart, here's a little gift for your friends.
+	Bart: I do not know what you've been upto but I am dyin to find out.
+	Bart: Fancy a drink?
+	You: Nah I'd rather sleep, see you tomorrow
+	Bart: Night Playa
+	do Data.set_value("bart_info_given",true)
+elif not Data.get_value("became_mayor") and Data.get_value("end_sleep"):
+	Bart: Ah Playa, I was waiting for you. Some reporters visited last night and once I showed them the campaign funds data you gave, they refused to wait till morning. The cops arrested May midnight yesterday.
+	You: What!? That's amazingly quick. Huh I guess that means I'm jobless again
+	Bart: Well not really. You know that the Californian rules of democacy say that there must always be a Mayor in a city
+	You: (No it doesn't, thats the rules of a monarchy)
+	Game Writer: I couldn't think of anything else so shut up nerd
+	Bart: And well, who better than the person who refused a straight bribe and got May behind bars.
+	You: You're kidding.
+	Bart: I am certainly not. If I were you, I'd head to your Office and talk to Asi, Mr. Mayor.
+	do Data.set_value("became_mayor",true)
+	
 else:
 	Bart: ~
 => END
@@ -41,6 +72,17 @@ elif not Data.get_value("job_start"):
 	Asi: Welcome back, we are pleased to announce that you would be an ideal candidate for the job and we'd love to have you working with it.
 	Asi: Your office is straigh down this hallway. It is located next to the retired animatronics storage room.
 	do Data.set_value("job_start",true)
+elif Data.get_value("became_mayor"):
+	Asi: Good morning Mr. Mayor
+	You: Morning Asi, it will take me some gettin gused to that title
+	Asi: Former Mayor May's belngings have been cleared from her old office and your stuff has been moved there. 
+	Asi: As for your first decisions in buisness, I have arranged the details of all of the off record actions under May. Its arranged in a way to be easily made public now.
+	You: That won't be necessary Asi. I'm sure things can stay the way they are for a while longer. We could all use some extra income while helping the city, right?
+	Asi: Understood, sir.
+	You: Oh and what are those behind you?
+	Asi: Oh these? They're notices informing people of a job vancancy for your previous role of data management.
+	do Data.set_value("game_over",true)
+	do get_tree().change_scene_to_file("res://credits.tscn")
 else:
 	Asi: ~
 => END
@@ -52,6 +94,12 @@ You: I should keep an eye out for stuff
 ~ work_sus_2
 You: None of this is right. I should go talk to May about this.
 => END
+~ work_sus_3
+You: Hope you don't mind me borrowing some of this data, May
+=> END!
+~ end_sleep
+You: I should check on with Bart
+do Data.set_value("end_sleep",true)
 ~ may
 if not Data.get_value("confront_may"):
 	May: Ah, Playa! Thanks for knocking, come in.  
@@ -63,6 +111,7 @@ if not Data.get_value("confront_may"):
 	May: You're new here. Not all these expenses and incomes are from corrupt reasons. Overall our pratices help our goal. It increases employee morale and allows for more, albeit secret, funding for the better of the city. I'd advise you ignore this issue and focus on the important parts of your job. After all, that's what gets you the significant pay raises.
 	- Are you trying to bribe me? I'm not gonna accept your stupid money. 
 		do Data.set_value("confront_may", true)
+		do Data.set_value("bad_ending",false)
 		May: Of course not, why would I do that. Just head back to your office and continue doing your job. 
 	- Undertood ma'am (Accept the bribe)
 		do Data.set_value("bad_ending",true)

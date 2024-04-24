@@ -85,6 +85,9 @@ func _unhandled_input(event):
 		if Data.get_value("need_sleep_job"):
 			Data.set_value("sleep_job", true)
 		Data.set_value("worked_today", false)
+		if not Data.get_value("end_sleep") and Data.get_value("bart_info_given"):
+			show_dialogue('end_sleep')
+			Data.set_value("end_sleep", true)
 		set_process(true)
 	if event.is_action_pressed("ui_accept") and area2d.get_overlapping_areas().any(func(area): return area.collision_layer == 128):
 		if not Data.get_value("worked_today"):
@@ -103,8 +106,11 @@ func _unhandled_input(event):
 			if Data.get_value("worked_count") == 7:
 				Data.set_value("work_7", true)
 				show_dialogue('work_sus_2')
+			if Data.get_value("bart_may_talked"):
+				show_dialogue('work_sus_3')
+				Data.set_value("bart_info_ready", true)
+			
 			set_process(true)
-
 		else:
 			get_node("/root/Game/Indoor/CanvasLayer/SleepText").text = "[center]You've already worked today.[/center]"
 			var timeout = get_tree().create_timer(1.5)

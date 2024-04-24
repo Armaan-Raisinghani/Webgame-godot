@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cld0oib3bnspg" path="res://NPC.tscn" id="1_0y4mq"]
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_qatb3"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_agage"]
-[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_7pic3"]
+[ext_resource type="PackedScene" path="res://gate.tscn" id="3_7pic3"]
 
 [node name="Indoor" type="Node2D"]
 metadata/indoor = 3
