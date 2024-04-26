@@ -11,6 +11,13 @@ func _ready():
 	body.load_interior.connect(load_interior)
 
 func load_interior(location, player):
+	if location == 6:
+		return
+	if location == 4 and not Data.get_value("job_start"):
+		print('rejeccting 4')
+		return
+	if location == 5 and not Data.get_value("work_7"):
+		return
 	if location >= 1:
 		var to_remove: Node
 		if has_node("/root/Game/Main"):

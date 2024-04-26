@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 var speed = 500
 @onready var child = $AnimatedSprite2D
-@onready var data_manager = get_node("/root/Game/DataManager")
 @export var quest: QuestResource
 @export var Balloon: PackedScene
 @export var SmallBalloon: PackedScene
@@ -29,7 +28,9 @@ func _process(delta):
 		direction.y = 1
 	direction = direction.normalized()
 	position += direction * speed * delta
-	rotation = direction.angle()
+	if direction.x != 0 or direction.y != 0:
+		rotation = direction.angle()
+	
 	if direction.length() > 0:
 		child.play()
 	else:
@@ -38,8 +39,11 @@ func _process(delta):
 func _enter_tree():
 	enterable = false
 func _on_area_2d_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
+	print("area entered")
 	if area.collision_layer == 2&&enterable:
+		print("2 and enterable")
 		if area.get_parent().get_parent().has_meta("DoorLocation"):
+			print("loading")
 			var location = area.get_parent().get_parent().get_meta("DoorLocation")
 			enterable = false
 			emit_signal("load_interior", location, self)

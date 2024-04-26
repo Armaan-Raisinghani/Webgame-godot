@@ -33,10 +33,7 @@ var credits = [
 		"Armaan Raisinghani",
 		"Divyansh Khurana"
 	],[
-		"Testers",
-		"Sanil Arora",
-		"Name 2",
-		"Name 3"
+		"Writing", "Armaan Raisinghani"
 	],[
 		"Tools used",
 		"Developed with Godot Engine",
@@ -44,9 +41,9 @@ var credits = [
 		"Tilesheet created using gamedeveloperstudio.com",
 	],[
 		"Special thanks",
-		"My parents",
-		"My friends",
-		"My pet rabbit"
+		"Everyone who kept me motivated to go on",
+		"Everyone who listened to me whine about bugs",
+		"And you, for playing this game"
 	]
 ]
 func _process(delta):

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyu2rmlypcwym" path="res://assets/npc.png" id="1_g4ceg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6i0y"]
-size = Vector2(80, 80)
+size = Vector2(232, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duseo"]
 size = Vector2(64, 64)

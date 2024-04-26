@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfr4ce05ybr4e"]
+
+[ext_resource type="Texture2D" uid="uid://13plc0wry6y3" path="res://assets/pixil-frame-0 (14).png" id="1_s1o7c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s1o7c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 13.0
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Mayor[/center]"

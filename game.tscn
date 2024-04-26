@@ -8,19 +8,21 @@
 position = Vector2(5, 0)
 script = ExtResource("1_w4rqs")
 
-[node name="DataManager" type="Node" parent="."]
+[node name="Data" type="Node" parent="."]
 script = ExtResource("2_13ili")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 4
-offset_left = 781.0
-offset_top = 17.0
-offset_right = 1141.0
-offset_bottom = 168.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_bottom = 151.0
+grow_horizontal = 0
 size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_vertical = 4
 color = Color(0, 0, 0, 1)
 
 [node name="Margin" type="MarginContainer" parent="CanvasLayer/ColorRect"]

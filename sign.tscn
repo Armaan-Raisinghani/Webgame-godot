@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqnr7ar7i3lc5"]
+
+[ext_resource type="Texture2D" uid="uid://dovfq3ciyw5vy" path="res://assets/sign.png" id="1_je5ox"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_je5ox")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = -3.0
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Home[/center]"

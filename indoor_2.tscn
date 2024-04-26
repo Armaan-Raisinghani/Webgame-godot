@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_x65rp"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_hudfn"]
-[ext_resource type="PackedScene" path="res://gate.tscn" id="3_81g3w"]
+[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_81g3w"]
 [ext_resource type="Texture2D" uid="uid://dr2vj6gwgegtw" path="res://assets/bed.png" id="4_srabn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvnab"]
@@ -60,7 +60,7 @@ layer_0/name = "0"
 layer_0/tile_data = PackedInt32Array(458765, 65536, 805306370, 458764, 0, 805306370, 458763, 65536, 805306370, 458762, 0, 805306370, 458761, 65536, 805306370, 458760, 0, 805306370, 458759, 65536, 805306370, 458758, 0, 805306370, 458757, 65536, 805306370, -65531, 65536, 1610612738, 5, 0, 1610612738, 65541, 65536, 1610612738, 393221, 0, 1610612738, 327685, 65536, 1610612738, 262149, 0, 1610612738, 196613, 65536, 1610612738, 131077, 0, 1610612738, 131078, 131072, 3, 65542, 131072, 3, 6, 131072, 3, -65530, 0, 2, -65529, 65536, 2, 7, 131072, 3, 65543, 131072, 3, 131079, 131072, 3, 196615, 131072, 3, 196614, 131072, 3, 262150, 131072, 3, 327686, 131072, 3, 393222, 131072, 3, 393223, 131072, 3, 327687, 131072, 3, 262151, 131072, 3, 262152, 131072, 3, 196616, 131072, 3, 131080, 131072, 3, 65544, 131072, 3, 8, 131072, 3, -65528, 0, 2, -65527, 65536, 2, 9, 131072, 3, 65545, 131072, 3, 131081, 131072, 3, 196617, 131072, 3, 262153, 131072, 3, 327689, 131072, 3, 327688, 131072, 3, 393224, 131072, 3, 393225, 131072, 3, 393226, 131072, 3, 327690, 131072, 3, 262154, 131072, 3, 196618, 131072, 3, 131082, 131072, 3, 65546, 131072, 3, 10, 131072, 3, -65526, 0, 2, -65525, 65536, 2, 11, 131072, 3, 65547, 131072, 3, 131083, 131072, 3, 196619, 131072, 3, 262155, 131072, 3, 327691, 131072, 3, 393227, 131072, 3, 393228, 131072, 3, 327692, 131072, 3, 262156, 131072, 3, 196620, 131072, 3, 131084, 131072, 3, 65548, 131072, 3, 12, 131072, 3, -65524, 0, 2, -65523, 0, 1342177282, 13, 65536, 1342177282, 65549, 0, 1342177282, 131085, 65536, 1342177282, 196621, 0, 1342177282, 262157, 65536, 1342177282, 327693, 0, 1342177282, 393229, 65536, 1342177282)
 layer_1/name = "1"
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(65547, 393216, 3, 327692, 65536, 5, 393228, 65536, 5)
 
 [node name="Gate" parent="TileMap" instance=ExtResource("3_81g3w")]
 position = Vector2(608, 480)
@@ -81,12 +81,19 @@ shape = SubResource("RectangleShape2D_hvnab")
 [node name="SleepText" type="RichTextLabel" parent="CanvasLayer"]
 visible = false
 modulate = Color(0, 0, 0, 1)
-offset_left = 376.0
-offset_top = 568.0
-offset_right = 1784.0
-offset_bottom = 708.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -140.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 45
-text = "Press Enter to sleep
+bbcode_enabled = true
+text = "[center]Press Enter to sleep
 "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
@@ -97,8 +104,8 @@ libraries = {
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -960.0
-offset_top = -344.0
+offset_top = -400.0
 offset_right = 2192.0
-offset_bottom = 1136.0
+offset_bottom = 1080.0
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 metadata/_edit_use_anchors_ = true

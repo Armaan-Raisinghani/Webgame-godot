@@ -552,7 +552,7 @@ func get_game_states(extra_game_states: Array) -> Array:
 
 
 # Check if a condition is met
-func check_condition(data: Dictionary, extra_game_states: Array) -> bool:
+func check_condition(data: Dictionary, extra_game_states: Array):
 	if data.get(&"condition", null) == null: return true
 	if data.condition.size() == 0: return true
 

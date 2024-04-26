@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchhuyowg2dj" path="res://player.tscn" id="1_v3q5c"]
 [ext_resource type="TileSet" uid="uid://ca33w1ih6xrsu" path="res://tileset.tres" id="2_6i0f1"]
-[ext_resource type="PackedScene" path="res://gate.tscn" id="3_cb803"]
-[ext_resource type="Texture2D" uid="uid://bxy227qinm5ra" path="res://icon.svg" id="4_vjdmw"]
+[ext_resource type="PackedScene" uid="uid://45xv1r21ws4q" path="res://gate.tscn" id="3_cb803"]
+[ext_resource type="Texture2D" uid="uid://co2wjwlx6tfbt" path="res://assets/laptop.png" id="4_q1rfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0h7"]
-size = Vector2(128, 224)
+size = Vector2(192, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1drc"]
 size = Vector2(64, 62)
@@ -53,7 +53,7 @@ _data = {
 metadata/indoor = 4
 
 [node name="Player" parent="." instance=ExtResource("1_v3q5c")]
-position = Vector2(608, 576)
+position = Vector2(600, 552)
 scale = Vector2(0.5, 0.5)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -63,26 +63,30 @@ layer_0/name = "0"
 layer_0/tile_data = PackedInt32Array(589830, 131072, 3, 655366, 131072, 3, 720902, 131072, 3, 786438, 131072, 3, 524295, 131072, 3, 589831, 131072, 3, 655367, 131072, 3, 720903, 131072, 3, 786439, 131072, 3, 524296, 131072, 3, 589832, 131072, 3, 655368, 131072, 3, 720904, 131072, 3, 786440, 131072, 3, 524297, 131072, 3, 589833, 131072, 3, 655369, 131072, 3, 720905, 131072, 3, 786441, 131072, 3, 524298, 131072, 3, 589834, 131072, 3, 655370, 131072, 3, 720906, 131072, 3, 786442, 131072, 3, 524299, 131072, 3, 589835, 131072, 3, 655371, 131072, 3, 720907, 131072, 3, 786443, 131072, 3, 524300, 131072, 3, 589836, 131072, 3, 655372, 131072, 3, 720908, 131072, 3, 786444, 131072, 3, 524301, 131072, 3, 851974, 131072, 3, 851975, 131072, 3, 851976, 131072, 3, 851977, 131072, 3, 851978, 131072, 3, 851979, 131072, 3, 851980, 131072, 3, 851981, 131072, 3, 458758, 65536, 1610612738, 458759, 65536, 2, 458760, 0, 2, 458761, 65536, 2, 458762, 0, 2, 458763, 65536, 2, 458764, 0, 2, 458765, 65536, 2, 458766, 0, 1342177282, 524302, 65536, 1342177282, 589838, 0, 1342177282, 655374, 65536, 1342177282, 720910, 0, 1342177282, 786446, 65536, 1342177282, 851982, 0, 1342177282, 917518, 65536, 1342177282, 917517, 0, 805306370, 917516, 65536, 805306370, 917515, 0, 805306370, 917514, 65536, 805306370, 917513, 0, 805306370, 917512, 65536, 805306370, 917511, 0, 805306370, 917510, 65536, 805306370, 851973, 65536, 1610612738, 917509, 0, 1610612738, 720901, 65536, 1610612738, 786437, 0, 1610612738, 589829, 65536, 1610612738, 655365, 0, 1610612738, 458757, 65536, 1610612738, 524293, 0, 1610612738, 524294, 131072, 3, 589837, 131072, 3, 655373, 131072, 3, 720909, 131072, 3, 786445, 131072, 3)
 layer_1/name = "1"
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(720903, 327680, 1610612739, 720904, 327680, 3, 786439, 327680, 805306371, 786440, 327680, 1342177283)
 
 [node name="Gate" parent="TileMap" instance=ExtResource("3_cb803")]
 position = Vector2(608, 480)
 metadata/DoorLocation = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+z_index = 1
+position = Vector2(32, 0)
 collision_layer = 128
+
+[node name="Area2D" type="Area2D" parent="TileMap/StaticBody2D"]
+position = Vector2(480, 768)
+scale = Vector2(0.5, 0.5)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D/Area2D"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_ro0h7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="TileMap/StaticBody2D"]
 position = Vector2(480, 768)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_vjdmw")
-
-[node name="Area2D" type="Area2D" parent="TileMap/StaticBody2D/Sprite2D2"]
-collision_layer = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D/Sprite2D2/Area2D"]
-position = Vector2(0, 48)
-shape = SubResource("RectangleShape2D_ro0h7")
+scale = Vector2(1.5, 1.25)
+texture = ExtResource("4_q1rfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(480, 767)
@@ -93,9 +97,16 @@ shape = SubResource("RectangleShape2D_r1drc")
 [node name="SleepText" type="RichTextLabel" parent="CanvasLayer"]
 visible = false
 modulate = Color(0, 0, 0, 1)
-offset_top = 568.0
-offset_right = 1152.0
-offset_bottom = 708.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -140.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center]Press Enter to work[/center]
@@ -108,9 +119,7 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -1128.0
-offset_top = -312.0
-offset_right = 2024.0
-offset_bottom = 1168.0
+offset_right = 3152.0
+offset_bottom = 1480.0
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 metadata/_edit_use_anchors_ = true
